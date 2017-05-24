@@ -21,8 +21,6 @@ public class HuffmanNode implements Comparable<HuffmanNode> {
         parent = par;
     }
 
-    // setters/getters
-
     @Override
     public int compareTo(HuffmanNode rhs) {
         return weight - rhs.weight;
@@ -33,5 +31,16 @@ public class HuffmanNode implements Comparable<HuffmanNode> {
         String str = "";
         str += this.value;
         return str;
+    }
+
+    @java.lang.Override
+    public java.lang.String toString() {
+        return "HuffmanNode{" +
+                "value=" + value +
+                ", weight=" + weight +
+                ", leftTree=" + leftTree +
+                ", rightTree=" + rightTree +
+                ", parent=" + parent +
+                '}';
     }
 }
