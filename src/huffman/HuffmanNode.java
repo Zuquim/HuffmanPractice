@@ -1,14 +1,12 @@
 package huffman;
 
 public class HuffmanNode implements Comparable<HuffmanNode> {
-    // fields
     int value;
     int weight;
     HuffmanNode leftTree;
     HuffmanNode rightTree;
     HuffmanNode parent;
 
-    // constructors
     HuffmanNode() {
         parent = null;
     }
@@ -20,8 +18,6 @@ public class HuffmanNode implements Comparable<HuffmanNode> {
         rightTree = rTree;
         parent = par;
     }
-
-    // setters/getters
 
     @Override
     public int compareTo(HuffmanNode rhs) {

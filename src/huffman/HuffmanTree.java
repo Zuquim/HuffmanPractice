@@ -10,7 +10,6 @@ public class HuffmanTree {
     private ArrayList<String> pathTable = new ArrayList();
     private ArrayList<Character> valueTable = new ArrayList();
     HuffmanTree(int[] freq, char[] code) {
-        // get the counts
         this.size = freq.length;
 
         // throw exception if arrays are different sizes
