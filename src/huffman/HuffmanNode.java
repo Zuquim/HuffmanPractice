@@ -3,8 +3,8 @@ package huffman;
 public class HuffmanNode implements Comparable<HuffmanNode> {
     int value;
     int weight;
-    HuffmanNode leftTree;
-    HuffmanNode rightTree;
+    HuffmanNode leftT;
+    HuffmanNode rightT;
     HuffmanNode parent;
 
     HuffmanNode() {
@@ -14,8 +14,8 @@ public class HuffmanNode implements Comparable<HuffmanNode> {
     HuffmanNode(int v, int w, HuffmanNode lTree, HuffmanNode rTree, HuffmanNode par) {
         value = v;
         weight = w;
-        leftTree = lTree;
-        rightTree = rTree;
+        leftT = lTree;
+        rightT = rTree;
         parent = par;
     }
 
@@ -30,4 +30,15 @@ public class HuffmanNode implements Comparable<HuffmanNode> {
         str += this.value;
         return str;
     }
+
+/*    @java.lang.Override
+    public java.lang.String toString() {
+        return "HuffmanNode{" +
+                "value=" + value +
+                ", weight=" + weight +
+                ", leftT=" + leftT +
+                ", rightT=" + rightT +
+                ", parent=" + parent +
+                '}';
+    }*/
 }

@@ -6,20 +6,18 @@ import java.util.PriorityQueue;
 public class HuffmanTree {
     private int size = 0;
     HuffmanNode root = new HuffmanNode();
-    private PriorityQueue<HuffmanNode> huffQueue = new PriorityQueue();
+    private PriorityQueue<HuffmanNode> huffmanQueue = new PriorityQueue();
     private ArrayList<String> pathTable = new ArrayList();
     private ArrayList<Character> valueTable = new ArrayList();
     HuffmanTree(int[] freq, char[] code) {
         this.size = freq.length;
 
-        // throw exception if arrays are different sizes
         if (freq.length != code.length) {
             throw new UnsupportedOperationException("Error: Character and code length mismatch.");
         }
 
-        // build huffQueue from frequencies given
         for (int i = 0; i < this.size; i++) {
-            huffQueue.offer(new HuffmanNode(code[i], freq[i], null, null, null));
+            huffmanQueue.offer(new HuffmanNode(code[i], freq[i], null, null, null));
         }
 
         createTree();
@@ -27,24 +25,24 @@ public class HuffmanTree {
     }
 
     private void createTree() {
-        // while elements remain in huffQueue, add to tree
-        while (huffQueue.size() > 1) {
-            // pop off two minimum elements in huffQueue
-            HuffmanNode tempL = huffQueue.poll();
-            HuffmanNode tempR = huffQueue.poll();
+        // while elements remain in huffmanQueue, add to tree
+        while (huffmanQueue.size() > 1) {
+            // pop off two minimum elements in huffmanQueue
+            HuffmanNode tempL = huffmanQueue.poll();
+            HuffmanNode tempR = huffmanQueue.poll();
 
             // create root for two minimum elements and build tree
             HuffmanNode parent = new HuffmanNode(0, tempL.weight + tempR.weight, tempL, tempR, null);
             tempL.parent = parent;
             tempR.parent = parent;
 
-            // add new tree back in huffQueue
-            huffQueue.offer(parent);
+            // add new tree back in huffmanQueue
+            huffmanQueue.offer(parent);
             this.size++;
         }
 
-        // set HuffmanTree root to remaining element in huffQueue
-        this.root = huffQueue.peek();
+        // set HuffmanTree root to remaining element in huffmanQueue
+        this.root = huffmanQueue.peek();
     }
 
     private void createTable(HuffmanNode curr, String str) {
@@ -52,7 +50,7 @@ public class HuffmanTree {
         if (curr == null) return;
 
         // else if leaf, display path and value
-        if (curr.leftTree == null && curr.rightTree == null) {
+        if (curr.leftT == null && curr.rightT == null) {
             char tempChar;
             if (curr.value == 32)
                 tempChar = ' ';
@@ -70,12 +68,12 @@ public class HuffmanTree {
         // add 0 if before moving to left child
         str += "0";
         // recursively call in pre-order
-        createTable(curr.leftTree, str);
+        createTable(curr.leftT, str);
 
         // adjust path and add 1 before moving to right child
         str = str.substring(0, str.length() - 1);
         str += "1";
-        createTable(curr.rightTree, str);
+        createTable(curr.rightT, str);
     }
 
     /**
@@ -89,7 +87,7 @@ public class HuffmanTree {
         if (curr == null) return;
 
         // else if leaf, display level, weight, and value
-        if (curr.leftTree == null && curr.rightTree == null) {
+        if (curr.leftT == null && curr.rightT == null) {
             // case statements to handle displaying space and newline
             switch (curr.value) {
                 case 32:
@@ -111,8 +109,8 @@ public class HuffmanTree {
         // increment level marker
         tacks += "- ";
         // recursively call in pre-order
-        getTree(curr.leftTree);
-        getTree(curr.rightTree);
+        getTree(curr.leftT);
+        getTree(curr.rightT);
         // decrement level marker
         tacks = tacks.substring(0, tacks.length() - 2);
     }
