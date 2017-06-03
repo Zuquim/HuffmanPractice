@@ -1,17 +1,17 @@
 package huffman;
 
 public class HuffmanNode implements Comparable<HuffmanNode> {
-    int value;
-    int weight;
-    HuffmanNode leftT;
-    HuffmanNode rightT;
-    HuffmanNode parent;
+    public int value;
+    public int weight;
+    public HuffmanNode leftT;
+    public HuffmanNode rightT;
+    public HuffmanNode parent;
 
-    HuffmanNode() {
+    public HuffmanNode() {
         parent = null;
     }
 
-    HuffmanNode(int v, int w, HuffmanNode lTree, HuffmanNode rTree, HuffmanNode par) {
+    public HuffmanNode(int v, int w, HuffmanNode lTree, HuffmanNode rTree, HuffmanNode par) {
         value = v;
         weight = w;
         leftT = lTree;

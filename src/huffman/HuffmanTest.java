@@ -21,10 +21,10 @@ public class HuffmanTest {
         System.out.println("");
 
         // encode 'tea'
-        System.out.println("Encode 'tea': " + hTree.encode("tea") + "\n");
+        System.out.println("Encode 'hamburguer': " + hTree.encode("hamburguer") + "\n");
 
         // decode 'tea' -- using the actual methods built in
-        System.out.println("Decode '" + hTree.encode("tea") + "': " +
-                hTree.decode(hTree.encode("tea")));
+        System.out.println("Decode '" + hTree.encode("hamburguer") + "': " +
+                hTree.decode(hTree.encode("hamburguer")));
     }
 }

@@ -76,9 +76,6 @@ public class HuffmanTree {
         createTable(curr.rightT, str);
     }
 
-    /**
-     * display given huffman tree using pre-order traversal
-     */
     // global variable used for representing 'levels' of tree
     private String tacks = "";
 
@@ -115,9 +112,6 @@ public class HuffmanTree {
         tacks = tacks.substring(0, tacks.length() - 2);
     }
 
-    /**
-     * returns size of a given huffman tree
-     */
     public int getSize() {
         return this.size;
     }
